@@ -46,7 +46,10 @@ public class Representant {
 	public void setSalaireFixe(float salaireFixe) {
 		this.salaireFixe = salaireFixe;
 	}
-
+        
+        public float getCaMensuel(int mois){
+            return caMensuel[mois];
+        }
 	 public ZoneGeographique getSecteur() {
 		// TODO: Implémenter cette méthode
                 return secteur;
@@ -98,8 +101,5 @@ public class Representant {
 		return "Representant{" + "numero=" + numero + ", nom=" + nom + ", prenom=" + prenom + '}';
 	}
 
-    private float getCaMensuel(int mois) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }
