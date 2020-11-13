@@ -7,11 +7,16 @@ public class Representant {
 	private final String prenom;
 	private String adresse;
 	private float salaireFixe;
+        private ZoneGeographique secteur;
+        private float[] caMensuel;
 
 	public Representant(int numero, String nom, String prenom, ZoneGeographique secteur) {
 		this.numero = numero;
 		this.nom = nom;
 		this.prenom = prenom;
+                this.secteur = secteur;
+                this.caMensuel = new float[12];
+                
 	}
 
 	public int getNumero() {
@@ -42,14 +47,16 @@ public class Representant {
 		this.salaireFixe = salaireFixe;
 	}
 
-	public ZoneGeographique getSecteur() {
+	 public ZoneGeographique getSecteur() {
 		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+                return secteur;
+		
 	}
 
 	public void setSecteur(ZoneGeographique secteur) {
 		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+                this.secteur = secteur;
+		
 	}
 
 	/**
@@ -66,7 +73,8 @@ public class Representant {
 			throw new IllegalArgumentException("Le montant doit être positif ou null");
 		}
 		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+                this.caMensuel[mois] = montant; 
+		
 	}
 
 	/**
@@ -77,12 +85,21 @@ public class Representant {
 	 */
 	public float salaireMensuel(int mois, float pourcentage) {
 		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+                float ca = getCaMensuel(mois);
+                float salaire = getSalaireFixe();
+                float repas = getSecteur().getIndemniteRepas();
+                
+                return salaire + repas + (ca * pourcentage);
+		
 	}
 
 	@Override
 	public String toString() {
 		return "Representant{" + "numero=" + numero + ", nom=" + nom + ", prenom=" + prenom + '}';
 	}
+
+    private float getCaMensuel(int mois) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

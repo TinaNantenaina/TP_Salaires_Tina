@@ -23,6 +23,21 @@ public class TestRepresentant {
 		r.setSalaireFixe(FIXE_BASTIDE);				
 	}
 	
+        @Test
+	public void testIdentity() {
+            assertEquals( "Bastide", r.getNom());
+            assertEquals( "Rémi", r.getPrenom());
+            assertEquals( 36, r.getNumero());
+	}
+        
+        @Test
+	public void testSecteur() {
+            ZoneGeographique y = new ZoneGeographique(2, "Occ");
+            y.setIndemniteRepas(INDEMNITE_OCCITANIE);
+            r.setSecteur(y);
+            assertEquals( y, r.getSecteur());
+	}
+        
 	@Test
 	public void testSalaireMensuel() {
 		float CA = 50000f;
